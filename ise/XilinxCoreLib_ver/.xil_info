@@ -1,0 +1,13 @@
+SIM=mti_pe
+LIB=XilinxCoreLib
+LANG=verilog
+MAPPED_LIB=XilinxCoreLib_ver
+SMART_LIB=FALSE
+LIB_PATH=C:\thresholding\ise
+SIM_VERSION=Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+XIL_VERSION=8.2i
+NUM_ERRORS=0
+NUM_WARNINGS=4
+TIMESTAMP=Sat Jun 25 01:34:15 2016
+LOGFILE=C:\thresholding\ise\XilinxCoreLib_ver\cxl_XilinxCoreLib.log
+SMARTLOGFILE=DEFAULT

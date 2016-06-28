@@ -1,0 +1,36 @@
+C:/thresholding/coregen/dp_sram_coregen_b.v {1 {vlog -work work -stats=none C:/thresholding/coregen/dp_sram_coregen_b.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module dp_sram_coregen_b
+
+Top level modules:
+	dp_sram_coregen_b
+
+} {} {}} C:/thresholding/src/thresholding_top.v {1 {vlog -work work -stats=none C:/thresholding/src/thresholding_top.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Thresholding_Top
+
+Top level modules:
+	Thresholding_Top
+
+} {} {}} C:/thresholding/src/thresholding_beh.v {1 {vlog -work work -stats=none C:/thresholding/src/thresholding_beh.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Tresholding
+
+Top level modules:
+	Tresholding
+
+} {} {}} C:/thresholding/coregen/dp_sram_coregen_p.v {1 {vlog -work work -stats=none C:/thresholding/coregen/dp_sram_coregen_p.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module dp_sram_coregen_p
+
+Top level modules:
+	dp_sram_coregen_p
+
+} {} {}} C:/thresholding/src/thresholding_top_TB.v {1 {vlog -work work -stats=none C:/thresholding/src/thresholding_top_TB.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Testbench_Top
+
+Top level modules:
+	Testbench_Top
+
+} {} {}}

@@ -1,0 +1,61 @@
+# BEGIN Project Options
+SET flowvendor = Other
+SET vhdlsim = False
+SET verilogsim = True
+SET workingdirectory = C:\thresholding\coregen\tmp
+SET speedgrade = -5
+SET simulationfiles = Behavioral
+SET asysymbol = False
+SET addpads = False
+SET device = xc2v8000
+SET implementationfiletype = Edif
+SET busformat = BusFormatAngleBracketNotRipped
+SET foundationsym = False
+SET package = ff1152
+SET createndf = False
+SET designentry = Verilog
+SET devicefamily = virtex2
+SET formalverification = False
+SET removerpms = False
+# END Project Options
+# BEGIN Select
+SELECT Dual_Port_Block_Memory family Xilinx,_Inc. 6.3
+# END Select
+# BEGIN Parameters
+CSET port_a_init_value=0
+CSET port_b_init_pin=true
+CSET port_b_enable_pin_polarity=Active_High
+CSET port_a_additional_output_pipe_stages=0
+CSET port_b_initialization_pin_polarity=Active_High
+CSET select_primitive=16kx1
+CSET port_a_init_pin=true
+CSET port_b_active_clock_edge=Rising_Edge_Triggered
+CSET port_a_handshaking_pins=false
+CSET global_init_value=0
+CSET port_a_enable_pin_polarity=Active_High
+CSET port_b_init_value=0
+CSET depth_a=76800
+CSET depth_b=19200
+CSET port_a_write_enable_polarity=Active_High
+CSET component_name=dp_sram_coregen_p
+CSET disable_warning_messages=true
+CSET port_a_enable_pin=true
+CSET configuration_port_a=Read_And_Write
+CSET write_mode_port_a=Read_After_Write
+CSET configuration_port_b=Read_And_Write
+CSET write_mode_port_b=Read_After_Write
+CSET port_b_register_inputs=false
+CSET primitive_selection=Optimize_For_Area
+CSET width_a=8
+CSET width_b=32
+CSET port_a_active_clock_edge=Rising_Edge_Triggered
+CSET port_b_additional_output_pipe_stages=0
+CSET port_b_write_enable_polarity=Active_High
+CSET load_init_file=false
+CSET port_a_register_inputs=false
+CSET port_a_initialization_pin_polarity=Active_High
+CSET port_b_handshaking_pins=false
+CSET port_b_enable_pin=true
+# END Parameters
+GENERATE
+

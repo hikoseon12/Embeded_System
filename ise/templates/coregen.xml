@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="dp_sram_coregen_b" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+dp_sram_coregen_b YourInstanceName (
+    .addra(addra),
+    .addrb(addrb),
+    .clka(clka),
+    .clkb(clkb),
+    .dina(dina),
+    .dinb(dinb),
+    .douta(douta),
+    .doutb(doutb),
+    .ena(ena),
+    .enb(enb),
+    .sinita(sinita),
+    .sinitb(sinitb),
+    .wea(wea),
+    .web(web));
+
+ 
+		</Template>
+		<Template label="dp_sram_coregen_p" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+dp_sram_coregen_p YourInstanceName (
+    .addra(addra),
+    .addrb(addrb),
+    .clka(clka),
+    .clkb(clkb),
+    .dina(dina),
+    .dinb(dinb),
+    .douta(douta),
+    .doutb(doutb),
+    .ena(ena),
+    .enb(enb),
+    .sinita(sinita),
+    .sinitb(sinitb),
+    .wea(wea),
+    .web(web));
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="dp_sram_coregen_b" treetype="template">
+		</Template>
+		<Template label="dp_sram_coregen_p" treetype="template">
+		</Template>
+	</Folder>
+</RootFolder>

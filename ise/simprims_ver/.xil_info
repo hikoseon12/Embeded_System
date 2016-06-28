@@ -1,0 +1,13 @@
+SIM=mti_pe
+LIB=simprim
+LANG=verilog
+MAPPED_LIB=simprims_ver
+SMART_LIB=FALSE
+LIB_PATH=C:\thresholding\ise
+SIM_VERSION=Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+XIL_VERSION=8.2i
+NUM_ERRORS=0
+NUM_WARNINGS=0
+TIMESTAMP=Sat Jun 25 01:34:03 2016
+LOGFILE=C:\thresholding\ise\simprims_ver\cxl_simprim.log
+SMARTLOGFILE=DEFAULT

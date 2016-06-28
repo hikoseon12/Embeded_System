@@ -1,0 +1,4 @@
+verilog work "../src/thresholding_beh.v"
+verilog work "dp_sram_coregen_p.v"
+verilog work "dp_sram_coregen_b.v"
+verilog work "../src/thresholding_top.v"

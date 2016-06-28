@@ -1,0 +1,1 @@
+xst -ise "C:/thresholding/ise/ise.ise" -intstyle ise -ifn Thresholding_Top.xst -ofn Thresholding_Top.syr

@@ -1,0 +1,605 @@
+Release 8.2i - xst I.31
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.49 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.49 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Reading design: Thresholding_Top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Thresholding_Top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Thresholding_Top"
+Output Format                      : NGC
+Target Device                      : xc2v8000-5-ff1152
+
+---- Source Options
+Top Module Name                    : Thresholding_Top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : NO
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Write Timing Constraints           : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+lso                                : Thresholding_Top.lso
+Read Cores                         : YES
+cross_clock_analysis               : NO
+verilog2001                        : YES
+safe_implementation                : No
+Optimize Instantiated Primitives   : NO
+tristate2logic                     : Yes
+use_clock_enable                   : Yes
+use_sync_set                       : Yes
+use_sync_reset                     : Yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../src/thresholding_beh.v" in library work
+Compiling verilog file "dp_sram_coregen_p.v" in library work
+Module <Tresholding> compiled
+Compiling verilog file "dp_sram_coregen_b.v" in library work
+Module <dp_sram_coregen_p> compiled
+Compiling verilog file "../src/thresholding_top.v" in library work
+Module <dp_sram_coregen_b> compiled
+Module <Thresholding_Top> compiled
+No errors in compilation
+Analysis of file <"Thresholding_Top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Thresholding_Top> in library <work>.
+
+Analyzing hierarchy for module <Tresholding> in library <work> with parameters.
+	S0 = "0000"
+	S1 = "0001"
+	S10 = "1100"
+	S10a = "1011"
+	S11 = "1101"
+	S12 = "1110"
+	S2 = "0010"
+	S3 = "0011"
+	S4 = "0100"
+	S5 = "0101"
+	S6 = "0111"
+	S6a = "0110"
+	S7 = "1000"
+	S8 = "1001"
+	S9 = "1010"
+
+Building hierarchy successfully finished.
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Thresholding_Top>.
+WARNING:Xst:2211 - "dp_sram_coregen_p.v" line 55: Instantiating black box module <dp_sram_coregen_p>.
+WARNING:Xst:2211 - "dp_sram_coregen_b.v" line 71: Instantiating black box module <dp_sram_coregen_b>.
+Module <Thresholding_Top> is correct for synthesis.
+ 
+Analyzing module <Tresholding> in library <work>.
+	S0 = 4'b0000
+	S1 = 4'b0001
+	S2 = 4'b0010
+	S3 = 4'b0011
+	S4 = 4'b0100
+	S5 = 4'b0101
+	S6a = 4'b0110
+	S6 = 4'b0111
+	S7 = 4'b1000
+	S8 = 4'b1001
+	S9 = 4'b1010
+	S10a = 4'b1011
+	S10 = 4'b1100
+	S11 = 4'b1101
+	S12 = 4'b1110
+Module <Tresholding> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:1304 - Contents of register <I_RW> in unit <Tresholding> never changes during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <Tresholding>.
+    Related source file is "../src/thresholding_beh.v".
+WARNING:Xst:1781 - Signal <MaskGaussian> is used but never assigned. Tied to default value.
+    Register <O_En> equivalent to <O_RW> has been removed
+    Found finite state machine <FSM_0> for signal <State>.
+    -----------------------------------------------------------------------
+    | States             | 15                                             |
+    | Transitions        | 20                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 14                                             |
+    | Clock              | Clk (rising_edge)                              |
+    | Reset              | Rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:643 - "../src/thresholding_beh.v" line 143: The result of a 32x9-bit multiplication is partially used. Only the 17 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:643 - "../src/thresholding_beh.v" line 124: The result of a 33x4-bit multiplication is partially used. Only the 5 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:643 - "../src/thresholding_beh.v" line 115: The result of a 33x9-bit multiplication is partially used. Only the 17 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+    Found 25x6-bit ROM for signal <$varindex0000> created at line 129.
+    Found 1-bit register for signal <O_RW>.
+    Found 17-bit register for signal <P_Addr>.
+    Found 17-bit register for signal <B_Addr>.
+    Found 8-bit register for signal <T_Out>.
+    Found 1-bit register for signal <Done>.
+    Found 1-bit register for signal <I_En>.
+    Found 33-bit adder for signal <$add0000> created at line 128.
+    Found 33-bit adder for signal <$add0001> created at line 128.
+    Found 17-bit adder for signal <$add0002> created at line 153.
+    Found 5-bit adder for signal <$add0003> created at line 124.
+    Found 17-bit adder for signal <$addsub0002>.
+    Found 17-bit adder for signal <$addsub0003>.
+    Found 5-bit adder for signal <$addsub0004>.
+    Found 17-bit adder for signal <$addsub0005> created at line 129.
+    Found 32-bit adder for signal <$addsub0006> created at line 156.
+    Found 32-bit adder for signal <$addsub0007> created at line 160.
+    Found 32-bit adder for signal <$addsub0008> created at line 138.
+    Found 32-bit adder for signal <$addsub0009> created at line 134.
+    Found 32-bit adder carry out for signal <$addsub0010> created at line 124.
+    Found 32-bit adder carry out for signal <$addsub0011> created at line 115.
+    Found 34-bit comparator greatequal for signal <$cmp_ge0000> created at line 128.
+    Found 34-bit comparator greatequal for signal <$cmp_ge0001> created at line 128.
+    Found 17-bit comparator greatequal for signal <$cmp_ge0002> created at line 152.
+    Found 33-bit comparator lessequal for signal <$cmp_le0000> created at line 106.
+    Found 33-bit comparator lessequal for signal <$cmp_le0001> created at line 114.
+    Found 33-bit comparator less for signal <$cmp_lt0000> created at line 89.
+    Found 33-bit comparator less for signal <$cmp_lt0001> created at line 97.
+    Found 34-bit comparator less for signal <$cmp_lt0002> created at line 128.
+    Found 34-bit comparator less for signal <$cmp_lt0003> created at line 128.
+    Found 8x6-bit multiplier for signal <$mult0006> created at line 129.
+    Found 32x9-bit multiplier for signal <$mult0007> created at line 143.
+    Found 33x4-bit multiplier for signal <$mult0008> created at line 124.
+    Found 33x9-bit multiplier for signal <$mult0009> created at line 115.
+    Found 5-bit register for signal <G_Addr>.
+    Found 32-bit register for signal <I>.
+    Found 32-bit register for signal <J>.
+    Found 17-bit register for signal <Val>.
+    Found 32-bit register for signal <X>.
+    Found 32-bit register for signal <Y>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 ROM(s).
+	inferred 195 D-type flip-flop(s).
+	inferred  14 Adder/Subtractor(s).
+	inferred   4 Multiplier(s).
+	inferred   9 Comparator(s).
+Unit <Tresholding> synthesized.
+
+
+Synthesizing Unit <Thresholding_Top>.
+    Related source file is "../src/thresholding_top.v".
+Unit <Thresholding_Top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 25x6-bit ROM                                          : 1
+# Multipliers                                          : 4
+ 32x9-bit multiplier                                   : 1
+ 33x4-bit multiplier                                   : 1
+ 33x9-bit multiplier                                   : 1
+ 8x6-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 14
+ 17-bit adder                                          : 4
+ 32-bit adder                                          : 4
+ 32-bit adder carry out                                : 2
+ 33-bit adder                                          : 2
+ 5-bit adder                                           : 2
+# Registers                                            : 12
+ 1-bit register                                        : 3
+ 17-bit register                                       : 3
+ 32-bit register                                       : 4
+ 5-bit register                                        : 1
+ 8-bit register                                        : 1
+# Comparators                                          : 9
+ 17-bit comparator greatequal                          : 1
+ 33-bit comparator less                                : 2
+ 33-bit comparator lessequal                           : 2
+ 34-bit comparator greatequal                          : 2
+ 34-bit comparator less                                : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <T_Core/State> on signal <State[1:4]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 0000
+ 0001  | 0001
+ 0010  | 0010
+ 0011  | 0011
+ 0100  | 0101
+ 0101  | 0111
+ 0110  | 1001
+ 0111  | 1011
+ 1000  | 1100
+ 1001  | 1010
+ 1010  | 1000
+ 1011  | 1101
+ 1100  | 1110
+ 1101  | 0110
+ 1110  | 0100
+-------------------
+Loading device for application Rf_Device from file '2v8000.nph' in environment C:\Xilinx.
+Executing edif2ngd -noa "dp_sram_coregen_p.edn" "dp_sram_coregen_p.ngo"
+Release 8.2i - edif2ngd I.31
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 8.2i edif2ngd I.31
+INFO:NgdBuild - Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+Writing module to "dp_sram_coregen_p.ngo"...
+Executing edif2ngd -noa "dp_sram_coregen_b.edn" "dp_sram_coregen_b.ngo"
+Release 8.2i - edif2ngd I.31
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 8.2i edif2ngd I.31
+INFO:NgdBuild - Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+Writing module to "dp_sram_coregen_b.ngo"...
+Loading core <dp_sram_coregen_p> for timing and area information for instance <MemP>.
+Loading core <dp_sram_coregen_b> for timing and area information for instance <MemB>.
+INFO:Xst:1651 - Address input of ROM <Mrom__varindex0000> is tied to register <G_Addr>.
+INFO:Xst:2502 - HDL ADVISOR - Asynchronous or synchronous initialization of this register prevents it from being combined with the ROM for implementation as read-only block RAM.
+INFO:Xst:2261 - The FF/Latch <T_Out_0> in Unit <Tresholding> is equivalent to the following 7 FFs/Latches, which will be removed : <T_Out_1> <T_Out_2> <T_Out_3> <T_Out_4> <T_Out_5> <T_Out_6> <T_Out_7> 
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 1
+ 25x6-bit ROM                                          : 1
+# Multipliers                                          : 4
+ 32x9-bit multiplier                                   : 1
+ 33x4-bit multiplier                                   : 1
+ 33x9-bit multiplier                                   : 1
+ 8x6-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 14
+ 17-bit adder                                          : 4
+ 32-bit adder                                          : 4
+ 32-bit adder carry out                                : 2
+ 33-bit adder                                          : 2
+ 5-bit adder                                           : 2
+# Registers                                            : 192
+ Flip-Flops                                            : 192
+# Comparators                                          : 9
+ 17-bit comparator greatequal                          : 1
+ 33-bit comparator less                                : 2
+ 33-bit comparator lessequal                           : 2
+ 34-bit comparator greatequal                          : 2
+ 34-bit comparator less                                : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Thresholding_Top> ...
+
+Optimizing unit <Tresholding> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Thresholding_Top, actual ratio is 1.
+INFO:Xst:2260 - The FF/Latch <BU64> in Unit <MemP> is equivalent to the following FF/Latch : <BU1894> 
+INFO:Xst:2260 - The FF/Latch <BU373> in Unit <MemP> is equivalent to the following FF/Latch : <BU2203> 
+INFO:Xst:2260 - The FF/Latch <BU364> in Unit <MemP> is equivalent to the following FF/Latch : <BU2194> 
+INFO:Xst:2260 - The FF/Latch <BU370> in Unit <MemP> is equivalent to the following FF/Latch : <BU2200> 
+INFO:Xst:2260 - The FF/Latch <BU367> in Unit <MemP> is equivalent to the following FF/Latch : <BU2197> 
+INFO:Xst:2260 - The FF/Latch <BU70> in Unit <MemP> is equivalent to the following FF/Latch : <BU1900> 
+INFO:Xst:2260 - The FF/Latch <BU76> in Unit <MemP> is equivalent to the following FF/Latch : <BU1906> 
+INFO:Xst:2260 - The FF/Latch <BU67> in Unit <MemP> is equivalent to the following FF/Latch : <BU1897> 
+INFO:Xst:2260 - The FF/Latch <BU376> in Unit <MemP> is equivalent to the following FF/Latch : <BU2206> 
+INFO:Xst:2260 - The FF/Latch <BU73> in Unit <MemP> is equivalent to the following FF/Latch : <BU1903> 
+INFO:Xst:2260 - The FF/Latch <BU373> in Unit <MemB> is equivalent to the following FF/Latch : <BU1351> 
+INFO:Xst:2260 - The FF/Latch <BU76> in Unit <MemB> is equivalent to the following FF/Latch : <BU1054> 
+INFO:Xst:2260 - The FF/Latch <BU364> in Unit <MemB> is equivalent to the following FF/Latch : <BU1342> 
+INFO:Xst:2260 - The FF/Latch <BU73> in Unit <MemB> is equivalent to the following FF/Latch : <BU1051> 
+INFO:Xst:2260 - The FF/Latch <BU70> in Unit <MemB> is equivalent to the following FF/Latch : <BU1048> 
+INFO:Xst:2260 - The FF/Latch <BU370> in Unit <MemB> is equivalent to the following FF/Latch : <BU1348> 
+INFO:Xst:2260 - The FF/Latch <BU376> in Unit <MemB> is equivalent to the following FF/Latch : <BU1354> 
+INFO:Xst:2260 - The FF/Latch <BU367> in Unit <MemB> is equivalent to the following FF/Latch : <BU1345> 
+INFO:Xst:2260 - The FF/Latch <BU67> in Unit <MemB> is equivalent to the following FF/Latch : <BU1045> 
+INFO:Xst:2260 - The FF/Latch <BU64> in Unit <MemB> is equivalent to the following FF/Latch : <BU1042> 
+INFO:Xst:2260 - The FF/Latch <BU64> in Unit <MemP> is equivalent to the following FF/Latch : <BU1894> 
+INFO:Xst:2260 - The FF/Latch <BU373> in Unit <MemP> is equivalent to the following FF/Latch : <BU2203> 
+INFO:Xst:2260 - The FF/Latch <BU364> in Unit <MemP> is equivalent to the following FF/Latch : <BU2194> 
+INFO:Xst:2260 - The FF/Latch <BU370> in Unit <MemP> is equivalent to the following FF/Latch : <BU2200> 
+INFO:Xst:2260 - The FF/Latch <BU367> in Unit <MemP> is equivalent to the following FF/Latch : <BU2197> 
+INFO:Xst:2260 - The FF/Latch <BU70> in Unit <MemP> is equivalent to the following FF/Latch : <BU1900> 
+INFO:Xst:2260 - The FF/Latch <BU76> in Unit <MemP> is equivalent to the following FF/Latch : <BU1906> 
+INFO:Xst:2260 - The FF/Latch <BU67> in Unit <MemP> is equivalent to the following FF/Latch : <BU1897> 
+INFO:Xst:2260 - The FF/Latch <BU376> in Unit <MemP> is equivalent to the following FF/Latch : <BU2206> 
+INFO:Xst:2260 - The FF/Latch <BU73> in Unit <MemP> is equivalent to the following FF/Latch : <BU1903> 
+INFO:Xst:2260 - The FF/Latch <BU373> in Unit <MemB> is equivalent to the following FF/Latch : <BU1351> 
+INFO:Xst:2260 - The FF/Latch <BU76> in Unit <MemB> is equivalent to the following FF/Latch : <BU1054> 
+INFO:Xst:2260 - The FF/Latch <BU364> in Unit <MemB> is equivalent to the following FF/Latch : <BU1342> 
+INFO:Xst:2260 - The FF/Latch <BU73> in Unit <MemB> is equivalent to the following FF/Latch : <BU1051> 
+INFO:Xst:2260 - The FF/Latch <BU70> in Unit <MemB> is equivalent to the following FF/Latch : <BU1048> 
+INFO:Xst:2260 - The FF/Latch <BU370> in Unit <MemB> is equivalent to the following FF/Latch : <BU1348> 
+INFO:Xst:2260 - The FF/Latch <BU376> in Unit <MemB> is equivalent to the following FF/Latch : <BU1354> 
+INFO:Xst:2260 - The FF/Latch <BU367> in Unit <MemB> is equivalent to the following FF/Latch : <BU1345> 
+INFO:Xst:2260 - The FF/Latch <BU67> in Unit <MemB> is equivalent to the following FF/Latch : <BU1045> 
+INFO:Xst:2260 - The FF/Latch <BU64> in Unit <MemB> is equivalent to the following FF/Latch : <BU1042> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 192
+ Flip-Flops                                            : 192
+
+=========================================================================
+
+=========================================================================
+*                          Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Thresholding_Top.ngr
+Top Level Output File Name         : Thresholding_Top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 138
+
+Cell Usage :
+# BELS                             : 2602
+#      GND                         : 3
+#      INV                         : 27
+#      LUT1                        : 148
+#      LUT2                        : 136
+#      LUT3                        : 25
+#      LUT4                        : 1187
+#      LUT4_D                      : 1
+#      LUT4_L                      : 1
+#      MUXCY                       : 347
+#      MUXF5                       : 294
+#      MUXF6                       : 112
+#      MUXF7                       : 56
+#      VCC                         : 1
+#      XORCY                       : 264
+# FlipFlops/Latches                : 232
+#      FDE                         : 40
+#      FDR                         : 116
+#      FDRS                        : 76
+# RAMS                             : 76
+#      RAMB16_S4_S18               : 38
+#      RAMB16_S4_S4                : 38
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 137
+#      IBUF                        : 88
+#      OBUF                        : 49
+# MULTs                            : 4
+#      MULT18X18                   : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 2v8000ff1152-5 
+
+ Number of Slices:                     798  out of  46592     1%  
+ Number of Slice Flip Flops:           232  out of  93184     0%  
+ Number of 4 input LUTs:              1525  out of  93184     1%  
+ Number of IOs:                        138
+ Number of bonded IOBs:                138  out of    824    16%  
+ Number of BRAMs:                       76  out of    168    45%  
+ Number of MULT18X18s:                   4  out of    168     2%  
+ Number of GCLKs:                        1  out of     16     6%  
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk                                | BUFGP                  | 308   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 12.666ns (Maximum Frequency: 78.952MHz)
+   Minimum input arrival time before clock: 3.741ns
+   Maximum output required time after clock: 9.965ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 12.666ns (frequency: 78.952MHz)
+  Total number of paths / destination ports: 204235 / 1318
+-------------------------------------------------------------------------
+Delay:               12.666ns (Levels of Logic = 13)
+  Source:            MemP/B1836 (RAM)
+  Destination:       T_Core/Val_16 (FF)
+  Source Clock:      Clk rising
+  Destination Clock: Clk rising
+
+  Data Path: MemP/B1836 to T_Core/Val_16
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S4_S18:CLKA->DOA3    1   2.302   0.698  B1836 (N35237)
+     LUT4:I0->O            1   0.382   0.000  BU2127 (N54320)
+     MUXF5:I0->O           1   0.379   0.000  BU2133 (N54285)
+     MUXF6:I0->O           1   0.389   0.000  BU2146 (N54027)
+     MUXF7:I0->O           1   0.389   0.698  BU2174 (N53955)
+     LUT4:I0->O            2   0.382   0.610  BU2190 (douta<7>)
+     end scope: 'MemP'
+     MULT18X18:A7->P13     1   2.782   0.631  T_Core/Mmult__mult0006 (T_Core/_mult0006<13>)
+     LUT2:I1->O            1   0.382   0.000  T_Core/Madd__addsub0005_lut<13> (T_Core/N160)
+     MUXCY:S->O            1   0.259   0.000  T_Core/Madd__addsub0005_cy<13> (T_Core/Madd__addsub0005_cy<13>)
+     MUXCY:CI->O           1   0.046   0.000  T_Core/Madd__addsub0005_cy<14> (T_Core/Madd__addsub0005_cy<14>)
+     MUXCY:CI->O           0   0.046   0.000  T_Core/Madd__addsub0005_cy<15> (T_Core/Madd__addsub0005_cy<15>)
+     XORCY:CI->O           1   1.107   0.480  T_Core/Madd__addsub0005_xor<16> (T_Core/_addsub0005<16>)
+     LUT4:I2->O            1   0.382   0.000  T_Core/_mux0002<0>1 (T_Core/_mux0002<0>)
+     FDR:D                     0.322          T_Core/Val_16
+    ----------------------------------------
+    Total                     12.666ns (9.549ns logic, 3.117ns route)
+                                       (75.4% logic, 24.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 2361 / 1981
+-------------------------------------------------------------------------
+Offset:              3.741ns (Levels of Logic = 2)
+  Source:            Rst_Core (PAD)
+  Destination:       T_Core/O_RW (FF)
+  Destination Clock: Clk rising
+
+  Data Path: Rst_Core to T_Core/O_RW
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           171   0.718   1.507  Rst_Core_IBUF (Rst_Core_IBUF)
+     LUT2:I0->O           18   0.382   0.890  T_Core/_or00001 (T_Core/_or0000)
+     FDR:R                     0.244          T_Core/O_RW
+    ----------------------------------------
+    Total                      3.741ns (1.344ns logic, 2.397ns route)
+                                       (35.9% logic, 64.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 1777 / 49
+-------------------------------------------------------------------------
+Offset:              9.965ns (Levels of Logic = 7)
+  Source:            MemB/B984 (RAM)
+  Destination:       MB_do8<7> (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: MemB/B984 to MB_do8<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S4_S4:CLKB->DOB3    1   2.302   0.698  B984 (N20827)
+     LUT4:I0->O            1   0.382   0.000  BU1575 (N37922)
+     MUXF5:I0->O           1   0.379   0.000  BU1581 (N37887)
+     MUXF6:I0->O           1   0.389   0.000  BU1594 (N37629)
+     MUXF7:I0->O           1   0.389   0.698  BU1622 (N37557)
+     LUT4:I0->O            1   0.382   0.450  BU1638 (doutb<7>)
+     end scope: 'MemB'
+     OBUF:I->O                 3.896          MB_do8_7_OBUF (MB_do8<7>)
+    ----------------------------------------
+    Total                      9.965ns (8.119ns logic, 1.846ns route)
+                                       (81.5% logic, 18.5% route)
+
+=========================================================================
+CPU : 112.83 / 113.38 s | Elapsed : 113.00 / 113.00 s
+ 
+--> 
+
+Total memory usage is 312672 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :   44 (   0 filtered)
+
